@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Header & Nav Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ffcc;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #00ffcc;
+}
+
+/* Sections General Styling */
+section {
+    padding: 90px 10%;
+    text-align: center;
+}
+
+/* Hero Section Styling */
+.hero {
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.highlight {
+    color: #00ffcc;
+    border-right: 2px solid #00ffcc;
+    padding-right: 5px;
+    animation: blink 0.75s step-end infinite;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #d1d1d1;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Section Headers Graphic Accent */
+h2 {
+    font-size: 34px;
+    margin-bottom: 50px;
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+h2::after {
+    content: '';
+    width: 70px;
+    height: 3px;
+    background: #00ffcc;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Grids & Cards Layout (Premium Glassmorphism) */
+.skills-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.skill-card, .project-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 35px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.skill-card {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-card {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+    color: #00ffcc;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.project-card p {
+    color: #d1d1d1;
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.tech-tags {
+    margin-top: auto;
+}
+
+.tech-tag {
+    background: rgba(0, 255, 204, 0.12);
+    color: #00ffcc;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 8px;
+    display: inline-block;
+    margin-bottom: 5px;
+    border: 1px solid rgba(0, 255, 204, 0.2);
+}
+
+/* Interactive Transitions */
+.skill-card:hover, .project-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 255, 204, 0.6);
+    box-shadow: 0 15px 35px rgba(0, 255, 204, 0.15);
+    background: rgba(255, 255, 255, 0.09);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #888;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- JS Scroll Animation Transition Classes --- */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-element.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h2.reveal-element {
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+/* Typing Cursor Keyframes */
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: #00ffcc; }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 5%;
+    }
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    section {
+        padding: 60px 5%;
+    }
+}
